@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Purpose Calculator | Smart Calculation Suite</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-logo">∑</div>
+
+        <div>
+            <h2>APC</h2>
+            <span>All Purpose Calculator</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#dashboard">Calculators</a>
+        <a href="#history">History</a>
+    </nav>
+
+    <button class="theme-btn" id="themeBtn">
+        ◐
+    </button>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <span></span>
+            SMART CALCULATION PLATFORM
+        </div>
+
+        <h1>
+            All Your Calculations.
+            <span>One Intelligent Workspace.</span>
+        </h1>
+
+        <p>
+            A modern all-purpose calculator suite with 20 powerful calculators,
+            smart explanations, calculation history and persistent local storage.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" onclick="openDashboard()">
+                Explore 20 Calculators
+                <b>→</b>
+            </button>
+
+            <button class="secondary-btn" onclick="scrollToHistory()">
+                View History
+            </button>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>20</strong>
+                <span>Calculators</span>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <span>Calculations</span>
+            </div>
+
+            <div>
+                <strong>100%</strong>
+                <span>Local Storage</span>
+            </div>
+
+            <div>
+                <strong>1</strong>
+                <span>Smart Dashboard</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+
+        <div class="calculator-visual">
+
+            <div class="visual-top">
+                <span>SMART CALC</span>
+                <i>● ● ●</i>
+            </div>
+
+            <div class="visual-screen">
+                <small>RESULT</small>
+                <strong>₹10,258.42</strong>
+                <span>Smart calculation completed ✓</span>
+            </div>
+
+            <div class="visual-grid">
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>÷</span>
+
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>×</span>
+
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>−</span>
+
+                <span>0</span>
+                <span>.</span>
+                <span>%</span>
+                <span>=</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard" id="dashboard">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="eyebrow">SMART DASHBOARD</span>
+
+            <h2>
+                Choose Your
+                <span>Calculator</span>
+            </h2>
+
+            <p>
+                Explore 20 specialized calculators designed for everyday,
+                academic, financial and technical calculations.
+            </p>
+        </div>
+
+        <div class="dashboard-count">
+            <strong id="visibleCount">20</strong>
+            <span>Available</span>
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-panel">
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search calculator..."
+                autocomplete="off"
+            >
+
+            <kbd>Ctrl K</kbd>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button class="filter active" data-category="all">
+            All
+        </button>
+
+        <button class="filter" data-category="general">
+            General
+        </button>
+
+        <button class="filter" data-category="finance">
+            Finance
+        </button>
+
+        <button class="filter" data-category="health">
+            Health
+        </button>
+
+        <button class="filter" data-category="technical">
+            Technical
+        </button>
+
+        <button class="filter" data-category="math">
+            Mathematics
+        </button>
+
+    </div>
+
+
+    <!-- CALCULATOR CARDS -->
+
+    <div class="calculator-grid" id="calculatorGrid"></div>
+
+</section>
+
+
+<!-- ================= CALCULATOR WORKSPACE ================= -->
+
+<section class="workspace-section" id="workspace">
+
+    <div class="workspace">
+
+        <!-- Calculator -->
+
+        <div class="calculator-panel">
+
+            <button class="back-btn" onclick="openDashboard()">
+                ← Back to calculators
+            </button>
+
+            <div class="calculator-header">
+
+                <div class="calculator-icon" id="workspaceIcon">
+                    ∑
+                </div>
+
+                <div>
+                    <span class="eyebrow" id="workspaceCategory">
+                        CALCULATOR
+                    </span>
+
+                    <h2 id="workspaceTitle">
+                        Basic Calculator
+                    </h2>
+
+                    <p id="workspaceDescription">
+                        Perform basic arithmetic calculations.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="calculatorContent"></div>
+
+        </div>
+
+
+        <!-- Smart Explanation -->
+
+        <aside class="explanation-panel">
+
+            <div class="smart-heading">
+
+                <div class="brain-icon">
+                    ✦
+                </div>
+
+                <div>
+                    <span>SMART EXPLANATION</span>
+                    <h3>Understand Your Result</h3>
+                </div>
+
+            </div>
+
+            <div id="explanation">
+
+                <div class="empty-explanation">
+
+                    <div>🧠</div>
+
+                    <h3>Calculation insights</h3>
+
+                    <p>
+                        Complete a calculation and the system will explain
+                        the formula, steps and meaning of your result here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HISTORY ================= -->
+
+<section class="history-section" id="history">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">LOCAL STORAGE</span>
+
+            <h2>
+                Calculation
+                <span>History</span>
+            </h2>
+
+            <p>
+                Your recent calculations are stored automatically in your browser.
+            </p>
+
+        </div>
+
+        <button class="clear-history" onclick="clearHistory()">
+            Clear All
+        </button>
+
+    </div>
+
+
+    <div class="history-dashboard">
+
+        <div class="history-summary">
+
+            <div class="summary-card">
+                <span>Total Calculations</span>
+                <strong id="totalCalculations">0</strong>
+            </div>
+
+            <div class="summary-card">
+                <span>Calculators Used</span>
+                <strong id="calculatorsUsed">0</strong>
+            </div>
+
+            <div class="summary-card">
+                <span>Latest Activity</span>
+                <strong id="latestActivity">—</strong>
+            </div>
+
+        </div>
+
+
+        <div class="history-list" id="historyList">
+
+            <div class="empty-history">
+
+                <div>⌁</div>
+
+                <h3>No calculations yet</h3>
+
+                <p>
+                    Your completed calculations will appear here automatically.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-brand">
+        <div class="brand-logo">∑</div>
+
+        <div>
+            <strong>All Purpose Calculator</strong>
+            <span>Smart. Simple. Powerful.</span>
+        </div>
+    </div>
+
+    <p>
+        Built as a modern intelligent calculator platform.
+    </p>
+
+    <span>
+        © 2026 APC
+    </span>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
